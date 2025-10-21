@@ -15,6 +15,7 @@ class BasePage:
         self.browser.implicitly_wait(1)
 
 
+
     def is_element_present(self, how, what):
         try:
             self.browser.find_element(how, what)
@@ -48,6 +49,10 @@ class BasePage:
         login_link.click()
 
         return LoginPage(browser=self.browser, url=self.browser.current_url)
+
+
+    def go_to_basket(self):
+        self.browser.find_element(*BasePageLocators.BASKET_BUTTON).click()
 
 
     def open(self):

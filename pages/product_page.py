@@ -1,5 +1,6 @@
 import math
 from pages.base_page import BasePage
+from .locators import BasePageLocators
 from .locators import ProductPageLocators
 from selenium.common.exceptions import NoAlertPresentException
 
@@ -50,3 +51,4 @@ class ProductPage(BasePage):
 
     def should_disappear(self):
         assert self.is_disappeared(*ProductPageLocators.SUCCESSFULLY_ADDED_MESSAGE), "Success message is presented, but should disappear"
+
