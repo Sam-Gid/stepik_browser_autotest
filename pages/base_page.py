@@ -1,4 +1,5 @@
-from pages.locators import BasePageLocators
+from pages.locators import BasePageLocators, BasketPageLocators
+from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import NoSuchElementException
@@ -57,6 +58,14 @@ class BasePage:
 
     def open(self):
         self.browser.get(self.url)
+
+
+    def should_be_authorized(self):
+        try:
+            WebDriverWait(self.browser, 10).until(ec.visibility_of_element_located(BasePageLocators.USER_ICON))
+            return True
+        except TimeoutException:
+            assert False, 'User is not authorized'
 
 
     def should_be_login_link(self):
