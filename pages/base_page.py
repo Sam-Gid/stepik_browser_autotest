@@ -1,11 +1,8 @@
-from pages.locators import BasePageLocators, BasketPageLocators
-from selenium.webdriver.common.by import By
+from .locators import BasePageLocators
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.support import expected_conditions as ec
-
-
 
 
 
@@ -14,7 +11,6 @@ class BasePage:
         self.browser = browser
         self.url = url
         self.browser.implicitly_wait(1)
-
 
 
     def is_element_present(self, how, what):

@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 
 
+
 class LoginPage(BasePage):
 
     def register_new_user(self, email, password):
